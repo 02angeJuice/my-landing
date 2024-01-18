@@ -1,11 +1,11 @@
 import React from 'react'
 
-const pages = () => {
+const page = () => {
   return (
     <div style={{ textAlign: 'center', justifyContent: 'center' }}>
-      <h1>Second</h1>
+      <h1>Forgot Password</h1>
     </div>
   )
 }
 
-export default pages
+export default page

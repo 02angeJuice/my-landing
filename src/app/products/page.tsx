@@ -18,8 +18,6 @@ const page = () => {
           </li>
         ))}
       </ul>
-
-      <a href="/">{`<--Back`}</a>
     </div>
   )
 }

@@ -16,8 +16,6 @@ const page = ({
       <h1>
         Review {params.reviewId} for product {params.productId}
       </h1>
-
-      <a href="/products">{`<--Back`}</a>
     </div>
   )
 }

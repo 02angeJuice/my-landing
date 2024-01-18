@@ -8,7 +8,6 @@ const page = () => {
   return (
     <div style={{ textAlign: 'center', justifyContent: 'center' }}>
       <h1>About</h1>
-      <a href="/">{`<--Back`}</a>
     </div>
   )
 }

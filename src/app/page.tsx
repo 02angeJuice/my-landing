@@ -21,6 +21,25 @@ const page = () => {
         <li>
           <a href="/docs">Documents</a>
         </li>
+        <li>
+          <a href="/dashboard">Dashboard</a>
+        </li>
+      </ul>
+
+      <br />
+
+      <hr />
+
+      <ul>
+        <li>
+          <a href="/register">Register</a>
+        </li>
+        <li>
+          <a href="/login">Login</a>
+        </li>
+        <li>
+          <a href="/forgot-password">Forgot Password</a>
+        </li>
       </ul>
     </div>
   )

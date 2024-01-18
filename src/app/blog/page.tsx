@@ -13,8 +13,6 @@ const page = () => {
           <a href="/blog/second">Second</a>
         </li>
       </ul>
-
-      <a href="/">{`<--Back`}</a>
     </div>
   )
 }
