@@ -6,7 +6,7 @@ export const metadata = {
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
-      <p>Inner</p>
+      <p>Inner kub</p>
       {children}
     </div>
   )
