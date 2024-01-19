@@ -1,4 +1,4 @@
-import Back from '@/components/Back'
+import Back from '@/_components/Back'
 
 export const metadata = {
   title: 'Next.js',
