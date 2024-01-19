@@ -1,3 +1,9 @@
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
+
+const inter = Inter({ subsets: ['latin'] })
+
 import Back from '@/_components/Back'
 
 export const metadata = {
@@ -12,13 +18,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={inter.className}>
         <header
           style={{
             textAlign: 'center',
             backgroundColor: 'lightblue',
             padding: '1rem',
           }}
+
+          // className="flex min-h-screen flex-col items-center w-full p-24 bg-gray-300"
         >
           <p>Header</p>
         </header>
