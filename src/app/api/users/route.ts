@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client'
 import moment from 'moment'
-import { v4 as uuidv4 } from 'uuid'
+const { v4: uuidv4 } = require('uuid')
 
 const prisma = new PrismaClient()
 
