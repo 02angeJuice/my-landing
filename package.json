@@ -8,11 +8,11 @@
     "start": "next start",
     "lint": "next lint",
     "seed": "node -r dotenv/config ./scripts/seed.js",
-    "sql": "yarn prisma db pull && yarn prisma generate"
+    "sql": "yarn prisma db pull && yarn prisma generate",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
-    "@nestjs/common": "^10.3.0",
     "@prisma/client": "^5.8.1",
     "@reduxjs/toolkit": "^2.0.1",
     "@vercel/postgres": "^0.5.1",
