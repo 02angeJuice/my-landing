@@ -5,6 +5,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 import Back from '@/_components/Back'
+import StoreProvider from './StoreProvider'
 
 export const metadata = {
   title: 'Next.js',
@@ -17,33 +18,35 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <header
-          style={{
-            textAlign: 'center',
-            backgroundColor: 'lightblue',
-            padding: '1rem',
-          }}
+    <StoreProvider>
+      <html lang="en">
+        <body className={inter.className}>
+          <header
+            style={{
+              textAlign: 'center',
+              backgroundColor: 'lightblue',
+              padding: '1rem',
+            }}
 
-          // className="flex min-h-screen flex-col items-center w-full p-24 bg-gray-300"
-        >
-          <p>Header</p>
-        </header>
-        {children}
+            // className="flex min-h-screen flex-col items-center w-full p-24 bg-gray-300"
+          >
+            <p>Header</p>
+          </header>
+          {children}
 
-        <Back />
+          <Back />
 
-        <footer
-          style={{
-            textAlign: 'center',
-            backgroundColor: 'ghostwhite',
-            padding: '1rem',
-          }}
-        >
-          <p>Footer</p>
-        </footer>
-      </body>
-    </html>
+          <footer
+            style={{
+              textAlign: 'center',
+              backgroundColor: 'ghostwhite',
+              padding: '1rem',
+            }}
+          >
+            <p>Footer</p>
+          </footer>
+        </body>
+      </html>
+    </StoreProvider>
   )
 }
