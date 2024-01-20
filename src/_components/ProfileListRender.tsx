@@ -1,37 +1,38 @@
 /* eslint-disable @next/next/no-async-client-component */
 'use client'
 
-import axios from 'axios'
+// import axios from 'axios'
 import React, { useEffect, useMemo, useState } from 'react'
 import moment from 'moment'
 
 import { deleteUser, selectUsers } from '@/_actions/users-action'
 
-const ProfileListRender = async () => {
+const ProfileListRender = () => {
   // const [redata, setredata] = useState(false)
-  // const [users, setusers] = useState([])
+  const [users, setusers] = useState([])
 
-  // useEffect(() => {
-  //   const fetchUsers = async () => {
-  //     try {
-  //       const res = await fetch(
-  //         `http://localhost:3000/api/users?time=${Date.now()}`,
-  //         {
-  //           next: { revalidate: 5 }, // Revalidate every 60 seconds
-  //         }
-  //       )
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const res = await selectUsers()
+        // const res = await fetch(
+        //   `http://localhost:3000/api/users?time=${Date.now()}`,
+        //   {
+        //     next: { revalidate: 5 }, // Revalidate every 60 seconds
+        //   }
+        // )
 
-  //       const data = await res.json()
-  //       setusers(data)
-  //     } catch (error) {}
-  //   }
+        // console.log(res)
 
-  //   fetchUsers()
-  // }, [redata])
+        // const data = await res.json()
+        setusers(res)
+      } catch (error) {}
+    }
 
-  const users = await selectUsers()
+    fetchUsers()
+  }, [])
 
-  console.log(users)
+  // const users = await selectUsers()
 
   // const res = await fetch(
   //   `http://localhost:3000/api/users?time=${Date.now()}`,
