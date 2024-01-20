@@ -1,36 +1,35 @@
 /* eslint-disable @next/next/no-async-client-component */
-'use client'
 
 // import axios from 'axios'
 import React, { useEffect, useMemo, useState } from 'react'
 import moment from 'moment'
 
-import { deleteUser, selectUsers } from '@/_actions/users-action'
+import { selectUsers } from '@/_actions/users-action'
 
-const ProfileListRender = () => {
+const ProfileListRender = async () => {
   // const [redata, setredata] = useState(false)
-  const [users, setusers] = useState([])
+  // const [users, setusers] = useState([])
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const res = await selectUsers()
-        // const res = await fetch(
-        //   `http://localhost:3000/api/users?time=${Date.now()}`,
-        //   {
-        //     next: { revalidate: 5 }, // Revalidate every 60 seconds
-        //   }
-        // )
+  // useEffect(() => {
+  //   const fetchUsers = async () => {
+  //     try {
+  //       const res = await selectUsers()
+  //       // const res = await fetch(
+  //       //   `http://localhost:3000/api/users?time=${Date.now()}`,
+  //       //   {
+  //       //     next: { revalidate: 5 }, // Revalidate every 60 seconds
+  //       //   }
+  //       // )
 
-        // console.log(res)
+  //       // console.log(res)
 
-        // const data = await res.json()
-        setusers(res)
-      } catch (error) {}
-    }
+  //       // const data = await res.json()
+  //       setusers(res)
+  //     } catch (error) {}
+  //   }
 
-    fetchUsers()
-  }, [])
+  //   fetchUsers()
+  // }, [])
 
   // const users = await selectUsers()
 
@@ -40,7 +39,7 @@ const ProfileListRender = () => {
   //     next: { revalidate: 5 }, // Revalidate every 60 seconds
   //   }
   // )
-  // const users = await res.json()
+  const users = await selectUsers()
 
   return (
     <div>
@@ -50,12 +49,12 @@ const ProfileListRender = () => {
             <li>
               {user.user_id} - {user.username} - {user.email} -{' '}
               {moment(user.create_date)?.format('DD/MM/YYYY HH:mm')}{' '}
-              <span
+              {/* <span
                 style={{ cursor: 'pointer' }}
                 onClick={() => deleteUser(user.id)}
               >
                 ❌
-              </span>
+              </span> */}
             </li>
           </div>
         ))}

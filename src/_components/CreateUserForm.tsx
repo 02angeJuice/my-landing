@@ -10,6 +10,7 @@ import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { SubmitButton } from './SubmitButton'
 import axios from 'axios'
+// import { createUser } from '@/_actions/users-action'
 // import { loginSchema } from "../zodSchema/login";
 
 // type FormData = yup.InferType<typeof createSchema>
@@ -28,11 +29,19 @@ const CreateUserForm = () => {
 
   const onSubmit = async (data: any) => {
     try {
-      await axios.post('http://localhost:3000/api/users', {
-        email: data.email,
-        username: data.username,
-        password_hash: data.password_hash,
-      })
+      // await axios.post('http://localhost:3000/api/users', {
+      //   email: data.email,
+      //   username: data.username,
+      //   password_hash: data.password_hash,
+      // })
+
+      return
+
+      // createUser({
+      //   email: data.email,
+      //   username: data.username,
+      //   password_hash: data.password_hash,
+      // })
     } catch (error) {
       console.log(error)
     }
