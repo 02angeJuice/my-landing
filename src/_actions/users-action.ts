@@ -22,12 +22,18 @@ export const selectUsers = async () => {
   return users
 }
 
-// export const deleteUser = async (id: number) => {
-//   await axios.delete(`http://localhost:3000/api/users/${id}`)
+export const deleteUser = async (id: number) => {
+  // await axios.delete(`http://localhost:3000/api/users/${id}`)
 
-//   // setredata((value) => !value)
-//   return { message: 'delete success' }
-// }
+  // // setredata((value) => !value)
+  // return { message: 'delete success' }
+
+  await prisma.users.delete({
+    where: { id: Number(id) },
+  })
+
+  return { messagel: 'delete success' }
+}
 
 // export const createUser = async (data: any) => {
 //   await axios.post(`http://localhost:3000/api/users`, {

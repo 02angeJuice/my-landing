@@ -1,12 +1,13 @@
 /* eslint-disable @next/next/no-async-client-component */
 
 // import axios from 'axios'
+'use client'
 import React, { useEffect, useMemo, useState } from 'react'
 import moment from 'moment'
 
-import { selectUsers } from '@/_actions/users-action'
+import { selectUsers, deleteUser } from '@/_actions/users-action'
 
-const ProfileListRender = async () => {
+const ProfileListRender = ({ data }) => {
   // const [redata, setredata] = useState(false)
   // const [users, setusers] = useState([])
 
@@ -39,22 +40,24 @@ const ProfileListRender = async () => {
   //     next: { revalidate: 5 }, // Revalidate every 60 seconds
   //   }
   // )
-  const users = await selectUsers()
+  // const users = await selectUsers()
+
+  const hadnleDel = (id: any) => {
+    console.log(id)
+    deleteUser(id)
+  }
 
   return (
     <div>
       <ul>
-        {users.map((user: any) => (
+        {data.map((user: any) => (
           <div key={user.id}>
             <li>
               {user.user_id} - {user.username} - {user.email} -{' '}
               {moment(user.create_date)?.format('DD/MM/YYYY HH:mm')}{' '}
-              {/* <span
-                style={{ cursor: 'pointer' }}
-                onClick={() => deleteUser(user.id)}
-              >
-                ❌
-              </span> */}
+              <button onClick={() => hadnleDel(user.id)}>
+                <span style={{ cursor: 'pointer' }}>❌</span>
+              </button>
             </li>
           </div>
         ))}
