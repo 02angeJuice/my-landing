@@ -52,7 +52,7 @@ const CreateUserForm = () => {
   }
 
   return (
-    <div>
+    <div className="px-50">
       <form
         className="flex flex-col w-[300px] my-16"
         onSubmit={handleSubmit(onSubmit)}
