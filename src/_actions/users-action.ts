@@ -4,6 +4,9 @@ import axios from 'axios'
 import { revalidatePath } from 'next/cache'
 import { PrismaClient } from '@prisma/client'
 import { NextResponse } from 'next/server'
+import moment from 'moment'
+const { v4: uuidv4 } = require('uuid')
+
 const prisma = new PrismaClient()
 
 export const selectUsers = async () => {
@@ -32,16 +35,34 @@ export const deleteUser = async (id: number) => {
     where: { id: Number(id) },
   })
 
-  return { messagel: 'delete success' }
+  return { message: 'delete success' }
 }
 
-// export const createUser = async (data: any) => {
-//   await axios.post(`http://localhost:3000/api/users`, {
-//     email: data.email,
-//     username: data.username,
-//     password_hash: data.password_hash,
-//   })
+export const createUser = async (data: any) => {
+  // await axios.post(`http://localhost:3000/api/users`, {
+  //   email: data.email,
+  //   username: data.username,
+  //   password_hash: data.password_hash,
+  // })
 
-//   // setredata((value) => !value)
-//   return { message: 'delete success' }
-// }
+  await prisma.users.upsert({
+    where: {
+      email: data?.email,
+    },
+    update: {
+      email: data.email,
+      username: data.username,
+      password_hash: data.password_hash,
+      last_update: moment().format('YYYY-MM-DDTHH:mm:ss.SSS') + 'Z',
+    },
+    create: {
+      user_id: data?.user_id || uuidv4(),
+      email: data.email,
+      username: data.username,
+      password_hash: data.password_hash,
+    },
+  })
+
+  // setredata((value) => !value)
+  return { message: 'create success' }
+}

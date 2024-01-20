@@ -6,6 +6,8 @@ import { selectUsers } from '@/_actions/users-action'
 const page = async () => {
   const users = await selectUsers()
 
+  console.log(users)
+
   return (
     <div style={{ textAlign: 'center', justifyContent: 'center' }}>
       <h1>Profile</h1>
